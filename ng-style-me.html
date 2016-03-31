@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="angularStyle">
+<head>
+	<title>Angular practice with Style</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script type="text/javascript" src="style-controller.js"></script>
+
+</head>
+<body ng-controller="styleController">
+
+	<div id="wrapper" ng-style="{color:myColor}">
+		<div id="header" >
+			<h1>Consider the following</h1>
+			<img src="https://i.kinja-img.com/gawker-media/image/upload/s--Hp7GNrdX--/c_scale,fl_progressive,q_80,w_800/krizzghfqegk0fv0g3ey.gif";>
+		</div>
+		
+		<div class="color-input">
+			<input type="text" ng-model="myColor" placeholder="Enter a Color">
+			<span class="item" ng-hide="myColor=='red'">
+				Change the color to red!!
+			</span>
+		</div>
+		
+		<table class="item" >
+			<tr>
+				<th>First Name</th>
+				<th> Former </th>
+				<th> &#x2713;</th>
+			</tr>
+			<tr ng-repeat="item in items">
+				<td>{{item.name}} </td>
+				<td>{{item.former}}      <span ng-show="item.checked" ng-class="{'accepted' : understand}">Checked!</span></td>
+				<td>        <input type="checkbox" ng-model="item.checked"></td>
+			</tr>
+				
+		</table>
+
+		<div class="iunderstand">
+			<div class="item">
+				I understand the consequences!<input type="checkbox" ng-model="understand" checked="checked">
+			</div>
+		</div>
+		
+		<div class="item" ng-hide="understand">
+			By checking the above, you accept full reposibility for all checkboxes that are marked!<input type="checkbox" ng-model="understand">
+		</div>
+		
+
+	
+	</div>
+</body>
+</html>
